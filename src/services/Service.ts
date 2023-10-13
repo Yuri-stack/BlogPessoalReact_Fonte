@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: 'LINK DO DEPLOY DO SEU BACK END'
+    baseURL: 'https://db-blogpesoal-clvr.onrender.com'
 })
 
 export const login = async (url: string, dados: Object, setDados: Function) => {
