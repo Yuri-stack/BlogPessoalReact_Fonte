@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import './Login.css';
 
 function Login() {
@@ -40,7 +42,9 @@ function Login() {
 
                     <p>
                         Ainda não tem uma conta?{' '}
-                        Cadastre-se
+                        <Link to="/cadastro" className="text-indigo-800 hover:underline">
+                            Cadastre-se
+                        </Link>
                     </p>
                 </form>
                 <div className="fundoLogin hidden lg:block"></div>
