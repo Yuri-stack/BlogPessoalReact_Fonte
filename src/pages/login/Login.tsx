@@ -1,13 +1,24 @@
-import { Link } from 'react-router-dom';
+import { FormEvent, useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
 
 import './Login.css';
 
 function Login() {
 
+    const { nome, trocarNome } = useContext(AuthContext)
+
+    const navigate = useNavigate()
+
+    function handleSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        navigate('/home')
+    }
+
     return (
         <>
-            <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold ">
-                <form className="flex justify-center items-center flex-col w-1/2 gap-4" >
+            <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold">
+                <form className="flex justify-center items-center flex-col w-1/2 gap-4" onSubmit={handleSubmit}>
                     <h2 className="text-slate-900 text-5xl ">Entrar</h2>
                     <div className="flex flex-col w-full">
                         <label htmlFor="usuario">Usuário</label>
@@ -17,7 +28,8 @@ function Login() {
                             name="usuario"
                             placeholder="Usuario"
                             className="border-2 border-slate-700 rounded p-2"
-
+                            value={nome}
+                            onChange={(event) => trocarNome(event.target.value)}
                         />
                     </div>
                     <div className="flex flex-col w-full">
