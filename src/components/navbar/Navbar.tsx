@@ -26,7 +26,7 @@ function Navbar() {
                         <Link to='/postagens' className='hover:underline'>Postagens</Link>
                         <Link to='/temas' className='hover:underline'>Temas</Link>
                         <Link to='/cadastroTema' className='hover:underline'>Cadastrar Tema</Link>
-                        Perfil
+                        <Link to='/perfil' className='hover:underline'>Perfil</Link>
                         <Link to='' onClick={logout} className='hover:underline'>Sair</Link>
                     </div>
                 </div>
