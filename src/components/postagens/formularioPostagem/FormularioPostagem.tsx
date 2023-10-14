@@ -4,6 +4,7 @@ import { RotatingLines } from 'react-loader-spinner';
 
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { AuthContext } from '../../../contexts/AuthContext';
+import { toastAlerta } from '../../../utils/toastAlerta';
 
 import Tema from '../../../models/Tema';
 import Postagem from '../../../models/Postagem';
@@ -49,7 +50,7 @@ function FormularioPostagem() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado');
+            toastAlerta('Você precisa estar logado', "info")
             navigate('/');
         }
     }, [token])
@@ -94,14 +95,14 @@ function FormularioPostagem() {
                     },
                 });
 
-                alert('Postagem atualizada com sucesso')
+                toastAlerta('Postagem atualizada com sucesso', "sucesso")
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    alert('O token expirou, favor logar novamente')
+                    toastAlerta('O token expirou, favor logar novamente', "info")
                     handleLogout()
                 } else {
-                    alert('Erro ao atualizar a Postagem')
+                    toastAlerta('Erro ao atualizar a Postagem', "erro")
                 }
             }
 
@@ -113,14 +114,14 @@ function FormularioPostagem() {
                     },
                 })
 
-                alert('Postagem cadastrada com sucesso');
+                toastAlerta('Postagem cadastrada com sucesso', "sucesso")
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    alert('O token expirou, favor logar novamente')
+                    toastAlerta('O token expirou, favor logar novamente', "info")
                     handleLogout()
                 } else {
-                    alert('Erro ao cadastrar a Postagem');
+                    toastAlerta('Erro ao cadastrar a Postagem', "erro")
                 }
             }
         }
