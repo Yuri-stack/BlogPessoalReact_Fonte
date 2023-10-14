@@ -15,7 +15,7 @@ function FormularioPostagem() {
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [temas, setTemas] = useState<Tema[]>([])
 
-    const [tema, setTema] = useState<Tema>({} as Tema)
+    const [tema, setTema] = useState<Tema>({ id: 0, descricao: '', })
     const [postagem, setPostagem] = useState<Postagem>({} as Postagem)
 
     const { id } = useParams<{ id: string }>()
